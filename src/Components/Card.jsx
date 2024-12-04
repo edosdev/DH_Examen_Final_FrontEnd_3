@@ -1,6 +1,10 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Card = (props) => {
+  const ubicacion = useLocation()
+  console.log(ubicacion)
+
   const addFav = () => {
     let favoritos = [];
     const favoritosGuardado = localStorage.getItem("Favoritos");
@@ -25,12 +29,15 @@ const Card = (props) => {
   return (
     <div className="card">
       {/* En cada card deberan mostrar en name - username y el id */}
+      <img src="https://drfootpain.com/wp-content/uploads/2023/08/doctor-placeholder-1.png" alt={props.name} />
+      <Link to={`/dentista/${props.id}`} key={props.id}>
       <h3>Nombre {props.name}</h3>
       <h4>Usuario {props.username}</h4>
+      </Link>
       {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
       {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-      <button onClick={addFav} className="favButton">Añadir Favorito</button>
+      {ubicacion.pathname === "/favs" ? null : <button onClick={addFav}>Agregar a favoritos</button>}
     </div>
   );
 };

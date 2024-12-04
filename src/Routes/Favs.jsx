@@ -14,13 +14,11 @@ const Favs = () => {
     setFavs(obtenerFavoritos());
   }, [])
 
-
-
   return (
     <>
       <h1>Dentists Favs</h1>
       <div className="card-grid">
-        {favs.length > 0 ? ( // Use parentheses here
+        {favs.length > 0 ? ( 
 
           favs.map((e) => (
             <Card key={e.id} {...e} />

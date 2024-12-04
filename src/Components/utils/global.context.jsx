@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useReducer } from "react";
 import { reducer } from "./reducers/clasificacion";
+
 export const initialState = {
   theme: "",
   data: []

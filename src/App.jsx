@@ -7,6 +7,7 @@ import Contact from "./Routes/Contact";
 import Detail from "./Routes/Detail";
 import Favs from "./Routes/Favs";
 import { ContextProvider } from "./Components/utils/global.context";
+import Layouts from "./Layouts/Layouts";
 
 
 
@@ -15,14 +16,14 @@ function App() {
       <ContextProvider >
       <div className="App">
         <BrowserRouter>
-        <Navbar />
           <Routes>
+            <Route to="/" element={<Layouts />}>
             <Route path="/" element={<Home />} />
             <Route path="/dentista/:id" element={<Detail />} />
             <Route path="/favs" element={<Favs />} />
             <Route path="/contacto" element={<Contact />} />
+            </Route>
           </Routes>
-        <Footer />
         </BrowserRouter>
       </div>
     </ContextProvider>

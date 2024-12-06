@@ -3,7 +3,9 @@ export const reducer = (state, action) => {
     case "GET_MEDICS":
       return { ...state, data: action.payload }
     case "CHANGE_THEME":
+  
       const nuevoTema = state.theme === "light" ? "dark" : "light"
+
       return { ...state, theme: nuevoTema }
 
     default:

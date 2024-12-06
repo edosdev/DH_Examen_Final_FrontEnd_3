@@ -14,7 +14,7 @@ import Layouts from "./Layouts/Layouts";
 function App() {
   return (
       <ContextProvider >
-      <div className="App">
+      <div className="App container">
         <BrowserRouter>
           <Routes>
             <Route to="/" element={<Layouts />}>

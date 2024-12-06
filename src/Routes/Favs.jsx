@@ -15,9 +15,10 @@ const Favs = () => {
   }, [])
 
   return (
-    <>
-      <h1>Dentists Favs</h1>
-      <div className="card-grid">
+    <main className="fixed-grid has-4-cols">
+      <h1 className="title">Doctores Favoritos</h1>
+      <div className="grid is-column-gap-2.5">
+        
         {favs.length > 0 ? ( 
 
           favs.map((e) => (
@@ -30,7 +31,8 @@ const Favs = () => {
 
         )}
       </div>
-    </>
+      
+    </main>
   );
 };
 

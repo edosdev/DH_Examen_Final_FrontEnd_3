@@ -6,19 +6,32 @@ import { ContextGlobal } from "../Components/utils/global.context";
 const Home = () => {
   const { state } = useContext(ContextGlobal)
   const [dentistas, setDentistas] = useState([])
-  
-  useEffect(()=> {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
     setDentistas(state.data)
   }, [state.data])
 
+  useEffect(() => {
+
+    if (dentistas.length > 0) {
+      setLoading(false)
+    }
+
+  }, [dentistas])
+
 
   return (
-    <main className="" >
-      <h1>Lista de Doctores</h1>
-      <div className='card-grid'>
-        {dentistas.map((e) => {
-          return <Card key={e.id} {...e} />
-        })}
+    <main className="fixed-grid has-4-cols" >
+      <h1 className='title'>Lista de Doctores</h1>
+      <div className="grid is-column-gap-2.5">
+        {loading ? (
+          <div className='has-text-centered'>
+          <span class="loader"></span>
+        </div>) : (<>
+          {dentistas.map((e) => {
+            return <Card key={e.id} {...e} />
+          })}</>)}
       </div>
     </main>
   )

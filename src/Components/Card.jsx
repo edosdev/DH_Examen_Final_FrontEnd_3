@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Card = (props) => {
   const ubicacion = useLocation()
-  console.log(ubicacion)
+  // console.log(ubicacion)
 
   const addFav = () => {
     let favoritos = [];
@@ -27,18 +27,24 @@ const Card = (props) => {
   };
 
   return (
-    <div className="card">
-      {/* En cada card deberan mostrar en name - username y el id */}
-      <img src="https://drfootpain.com/wp-content/uploads/2023/08/doctor-placeholder-1.png" alt={props.name} />
+    <div className="card cell">
+      {/* En cada card deberan mostrar en name - username y el id */ }
       <Link to={`/dentista/${props.id}`} key={props.id}>
-      <h3>Nombre {props.name}</h3>
-      <h4>Usuario {props.username}</h4>
-      </Link>
-      {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-      {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-      {ubicacion.pathname === "/favs" ? null : <button onClick={addFav}>Agregar a favoritos</button>}
-    </div>
+      <figure figure class="image" >
+        <img src="https://drfootpain.com/wp-content/uploads/2023/08/doctor-placeholder-1.png" alt={props.name} />
+      </figure >
+    
+      <div className="media-content m-5">
+        <p className="title is-6">Nombre {props.name}</p>
+        <p className="subtitle is-6">Usuario: {props.username}</p>
+      </div>
+    </Link>
+  {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */ }
+      <div className="buttons container is-fullhd is-justify-content-center	">
+    {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
+    {ubicacion.pathname === "/favs" ? null : <button className="button is-primary" onClick={addFav}>Agregar a favoritos</button>}
+  </div>
+      </div >
   );
 };
 

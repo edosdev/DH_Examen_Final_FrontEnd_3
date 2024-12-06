@@ -25,7 +25,7 @@ export const ContextProvider = ({ children }) => {
 
 
 useEffect(() => {
-  document.body.className = state.theme;
+  document.documentElement.setAttribute("data-theme", state.theme);
 },[state.theme])
 
   useEffect(() => {
